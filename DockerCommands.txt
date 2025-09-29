@@ -1,0 +1,18 @@
+docker run --rm -it -v ${PWD}:/rails -w /rails ruby:3.4.2 bash
+
+bin/rails credentials:edit
+
+docker build -t metatest .
+
+docker run -d -p 3000:80 -e RAILS_MASTER_KEY=$(cat config/master.key) --name metatest metatest
+
+
+Adicione Linux ao ambiente docker no bundle
+bundle lock --add-platform x86_64-linux
+
+
+Para subir alterações no container, rode as 3 linahs abaixo:
+
+docker build -t metatest .
+docker rm -f metatest
+docker run -d -p 3000:80 -e RAILS_MASTER_KEY=$(cat config/master.key) --name metatest metatest
