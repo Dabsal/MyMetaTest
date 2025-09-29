@@ -29,7 +29,7 @@ Verifique se você possui instalado:
 
 ## Executando com Docker
 
-1. Crie a imagem Docker:
+1. Com o docker rodando, por exemplo com o docker desktop aberto, Crie a imagem Docker:
 
    docker build -t metatest .
 
